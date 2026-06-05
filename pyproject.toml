@@ -4,16 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elyria-compliance-evidence-wrapper"
-version = "0.2.0"
+version = "0.2.1"
 description = "Public-safe compliance evidence translation layer for Elyria boundary receipts"
 authors = [{ name = "Samantha Revita" }]
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Proprietary / Restricted Use" }
-dependencies = ["PyYAML>=6.0", "jsonschema>=4.21"]
+dependencies = ["PyYAML>=6.0", "jsonschema>=4.21", "pytest>=8.0"]
 
 [project.scripts]
 elyria-wrap = "elyria_compliance_wrapper.cli:main"
+
+[tool.setuptools.package-dir]
+"" = "src"
 
 [tool.setuptools.packages.find]
 where = ["src"]
