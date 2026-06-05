@@ -1,15 +1,16 @@
 import json
-import uuid
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict
 
-import yaml
 from jsonschema import validate
 
 from . import __version__
 from .crypto import sha256_json
 
-VALID_DECISIONS = {"EXECUTE", "REFUSE", "HALT", "ESCALATE", "REDIRECT", "QUARANTINE"}
+ALLOWED_DECISIONS = {"ADMIT", "REFUSE", "NARROW", "HALT", "ESCALATE"}
+ALLOWED_EFFECTS = {"BOUND", "NO_BIND", "PREVENTED", "PENDING"}
+NON_ADMIT_FORBIDDEN_WORDS = ("execute", "allow", "admit")
 
 
 def load_json(path: str) -> Dict[str, Any]:
@@ -17,84 +18,72 @@ def load_json(path: str) -> Dict[str, Any]:
         return json.load(f)
 
 
-def load_controls(path: str) -> Dict[str, Any]:
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+def schema_path(name: str) -> Path:
+    return Path(__file__).resolve().parents[2] / "schemas" / name
 
 
 def validate_receipt(receipt: Dict[str, Any]) -> None:
-    schema_path = Path(__file__).resolve().parents[2] / "schemas" / "boundary_receipt.schema.json"
-    if schema_path.exists():
-        validate(receipt, load_json(str(schema_path)))
-    decision = receipt.get("decision")
-    if decision not in VALID_DECISIONS:
-        raise ValueError(f"Unsupported decision: {decision}")
+    path = schema_path("boundary_receipt.schema.json")
+    if path.exists():
+        validate(receipt, load_json(str(path)))
+
+    decision = receipt.get("boundary_decision")
+    effect = receipt.get("protected_effect")
+
+    if decision not in ALLOWED_DECISIONS:
+        raise ValueError(f"Unsupported boundary_decision: {decision}")
+    if effect not in ALLOWED_EFFECTS:
+        raise ValueError(f"Unsupported protected_effect: {effect}")
 
 
-def consequence_posture(decision: str) -> str:
-    if decision == "EXECUTE":
-        return "effect_admitted_by_boundary"
-    if decision == "REFUSE":
+def compliance_posture(boundary_decision: str, protected_effect: str) -> str:
+    if boundary_decision == "REFUSE" and protected_effect == "NO_BIND":
         return "effect_prevented_by_boundary"
-    if decision == "HALT":
-        return "continuation_stopped_by_boundary"
-    if decision == "ESCALATE":
-        return "authorized_review_required_before_effect"
-    if decision == "REDIRECT":
-        return "alternate_corridor_required_before_effect"
-    if decision == "QUARANTINE":
-        return "isolated_pending_review"
-    return "unknown"
+    if boundary_decision == "HALT" and protected_effect == "PREVENTED":
+        return "effect_prevented_by_boundary"
+    if boundary_decision == "NARROW" and protected_effect == "PENDING":
+        return "consequence_requires_narrowed_review"
+    if boundary_decision == "ESCALATE" and protected_effect == "PENDING":
+        return "consequence_requires_escalation"
+    if boundary_decision == "ADMIT" and protected_effect == "BOUND":
+        return "consequence_admitted_by_boundary"
+    return "unknown_boundary_posture"
 
 
-def map_controls(receipt: Dict[str, Any], controls_cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
-    corridor = receipt.get("corridor", "")
-    mapped = []
-    for control in controls_cfg.get("controls", []):
-        corridors = control.get("corridors")
-        if corridors and corridor not in corridors:
-            continue
-        fields = control.get("evidence_fields", [])
-        mapped.append({
-            "control_id": control.get("id"),
-            "framework": control.get("framework"),
-            "area": control.get("area"),
-            "evidence_available": {field: field in receipt for field in fields},
-        })
-    return mapped
+def no_refusal_conversion(packet: Dict[str, Any]) -> None:
+    decision = packet.get("boundary_decision")
+    if decision == "ADMIT":
+        return
+
+    text = json.dumps(packet, sort_keys=True).lower()
+    for word in NON_ADMIT_FORBIDDEN_WORDS:
+        if word in text:
+            raise ValueError(f"Non-ADMIT packet contains forbidden wording: {word}")
 
 
-def build_packet(receipt: Dict[str, Any], controls_cfg: Dict[str, Any]) -> Dict[str, Any]:
+def build_packet(receipt: Dict[str, Any]) -> Dict[str, Any]:
     validate_receipt(receipt)
-    decision = receipt["decision"]
-    review_map = controls_cfg.get("default_review_posture", {})
+
+    boundary_decision = receipt["boundary_decision"]
+    protected_effect = receipt["protected_effect"]
+    source_hash = sha256_json(receipt)
+
     packet = {
-        "packet_id": f"cep-{uuid.uuid4()}",
-        "wrapper_name": controls_cfg.get("wrapper", {}).get("name", "Elyria Compliance Evidence Wrapper"),
-        "wrapper_version": controls_cfg.get("wrapper", {}).get("version", __version__),
-        "source_receipt_hash": sha256_json(receipt),
-        "source_receipt_id": receipt.get("receipt_id"),
-        "source_decision": decision,
-        "corridor": receipt.get("corridor"),
-        "consequence_posture": consequence_posture(decision),
-        "review_posture": review_map.get(decision, "review_required"),
-        "control_mappings": map_controls(receipt, controls_cfg),
-        "evidence_summary": {
-            "reason_code": receipt.get("reason_code"),
-            "protected_effect": receipt.get("protected_effect"),
-            "authority_basis": receipt.get("authority_basis", ""),
-            "evidence_basis": receipt.get("evidence_basis", ""),
-            "replay_basis": receipt.get("replay_basis", ""),
-            "ai_origin": receipt.get("ai_origin", False),
-        },
-        "boundary_notice": "Compliance evidence does not create admissibility. It reports a prior boundary decision.",
+        "packet_type": "elyria_compliance_evidence_packet",
+        "wrapper_version": __version__,
+        "source_receipt_id": receipt["receipt_id"],
+        "movement_id": receipt["movement_id"],
+        "boundary_system": receipt["boundary_system"],
+        "compliance_posture": compliance_posture(boundary_decision, protected_effect),
+        "boundary_decision": boundary_decision,
+        "protected_effect": protected_effect,
+        "reason": receipt.get("reason", ""),
+        "replay_status": receipt.get("replay_status", "UNKNOWN"),
+        "review_note": "Compliance packet records an already-decided boundary outcome. It does not authorize execution.",
+        "source_hash": source_hash,
+        "created_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
     }
+
+    no_refusal_conversion(packet)
     packet["packet_hash"] = sha256_json(packet)
     return packet
-
-
-def verify_packet(packet: Dict[str, Any]) -> bool:
-    expected = packet.get("packet_hash")
-    candidate = dict(packet)
-    candidate.pop("packet_hash", None)
-    return sha256_json(candidate) == expected
