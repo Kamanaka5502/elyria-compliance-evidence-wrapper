@@ -2,7 +2,7 @@
 
 Public-safe compliance evidence wrapper for Elyria consequence-boundary decisions.
 
-This repository does not govern execution. It converts existing boundary receipts, refusals, replay results, and consequence-control outcomes into auditor, regulator, and enterprise-risk review packets.
+This repository does not govern execution. It converts existing boundary receipts, refusals, replay results, and consequence-control outcomes into compliance, regulator, and enterprise-risk review packets.
 
 ```text
 Runtime boundary decides whether consequence may bind.
@@ -12,13 +12,14 @@ Compliance wrapper translates that decision into reviewable evidence.
 ## What this is
 
 - compliance evidence wrapper
-- audit packet generator
+- evidence packet generator
 - control-mapping surface
 - receipt-to-review translator
 - public-safe proof corridor for enterprise diligence
 
 ## What this is not
 
+- not an audit wrapper
 - not the Elyria runtime boundary
 - not a separate runtime authority
 - not the protected runtime authority
@@ -33,7 +34,7 @@ Compliance wrapper translates that decision into reviewable evidence.
 boundary receipt
   -> evidence packet builder
   -> control mapping
-  -> audit-ready compliance packet
+  -> compliance evidence packet
   -> deterministic packet hash
   -> verifier
 ```
@@ -46,7 +47,7 @@ This repository may expose:
 public receipt shape
 synthetic examples
 control mapping vocabulary
-audit packet schema
+compliance packet schema
 hash verification utility
 review path
 ```
@@ -88,7 +89,7 @@ A compliance packet is valid only as evidence about a boundary decision that alr
 ```text
 admissibility first
 evidence packet second
-audit review third
+regulated review third
 ```
 
 ## Status
