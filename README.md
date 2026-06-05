@@ -11,13 +11,20 @@
 
 # Elyria Compliance Evidence Wrapper
 
-Public-safe compliance evidence wrapper for Elyria consequence-boundary decisions.
+Elyria Compliance Evidence Wrapper is a public-safe evidence translation proof surface. It converts already-decided Elyria / VERITA consequence-boundary receipts into compliance-readable evidence packets.
 
-This repository does not govern execution. It converts existing boundary receipts, refusals, replay results, and consequence-control outcomes into compliance, regulator, and enterprise-risk review packets.
+It does not govern execution.
+
+It does not decide admissibility.
+
+It does not authorize consequence.
+
+It does not convert refusal into permission.
 
 ```text
-Runtime boundary decides whether consequence may bind.
-Compliance wrapper translates that decision into reviewable evidence.
+Boundary first.
+Evidence wrapper second.
+Compliance review third.
 ```
 
 ## What this is
@@ -30,7 +37,6 @@ Compliance wrapper translates that decision into reviewable evidence.
 
 ## What this is not
 
-- not an audit wrapper
 - not the Elyria runtime boundary
 - not a separate runtime authority
 - not the protected runtime authority
@@ -44,36 +50,9 @@ Compliance wrapper translates that decision into reviewable evidence.
 ```text
 boundary receipt
   -> evidence packet builder
-  -> control mapping
   -> compliance evidence packet
   -> deterministic packet hash
   -> verifier
-```
-
-## Public boundary
-
-This repository may expose:
-
-```text
-public receipt shape
-synthetic examples
-control mapping vocabulary
-compliance packet schema
-hash verification utility
-review path
-```
-
-This repository does not expose:
-
-```text
-protected runtime law
-private mathematical substrate
-protected resolving machinery
-customer policies
-production adapters
-private receipt internals
-client-specific control mappings
-credentials, secrets, or custody paths
 ```
 
 ## Quick start
@@ -81,14 +60,19 @@ credentials, secrets, or custody paths
 ```bash
 python -m venv .venv
 . .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -e .
 
-python -m elyria_compliance_wrapper build \
-  --receipt samples/boundary_receipt_refuse.json \
-  --controls configs/control_map.yaml \
-  --out out/refuse_packet.json
+elyria-wrap build examples/boundary_receipt_refuse.json --out out/refuse_packet.json
+elyria-wrap verify out/refuse_packet.json
+pytest -q
+```
 
-python -m elyria_compliance_wrapper verify --packet out/refuse_packet.json
+Expected output:
+
+```text
+packet written: out/refuse_packet.json
+verification passed
+tests passed
 ```
 
 ## Decision rule
@@ -97,12 +81,6 @@ Compliance does not make an action admissible.
 
 A compliance packet is valid only as evidence about a boundary decision that already occurred.
 
-```text
-admissibility first
-evidence packet second
-regulated review third
-```
-
 ## Reviewer documents
 
 | Document | Purpose |
@@ -110,7 +88,7 @@ regulated review third
 | `PUBLIC_DISCLOSURE_BOUNDARY.md` | Public/private boundary and non-certification posture. |
 | `COMPLIANCE_WRAPPER_MODEL.md` | Placement of the wrapper downstream of runtime admission. |
 | `CONTROL_MAPPING.md` | Public synthetic control mapping examples. |
-| `AUDITOR_REVIEW_PATH.md` | Regulated review path. Filename retained for compatibility. |
+| `REGULATED_REVIEW_PATH.md` | Regulated review path. |
 | `NON_PRODUCTION_NOTICE.md` | Production-use restriction and diligence requirements. |
 | `LICENSE` | Proprietary evaluation license. |
 
