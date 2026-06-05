@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ComplianceEvidencePacket",
+  "type": "object",
+  "required": [
+    "packet_id",
+    "wrapper_version",
+    "source_receipt_hash",
+    "source_decision",
+    "consequence_posture",
+    "control_mappings",
+    "packet_hash"
+  ],
+  "properties": {
+    "packet_id": {"type": "string"},
+    "wrapper_version": {"type": "string"},
+    "source_receipt_hash": {"type": "string"},
+    "source_decision": {"type": "string"},
+    "consequence_posture": {"type": "string"},
+    "control_mappings": {"type": "array"},
+    "evidence_summary": {"type": "object"},
+    "review_posture": {"type": "string"},
+    "packet_hash": {"type": "string"}
+  }
+}
