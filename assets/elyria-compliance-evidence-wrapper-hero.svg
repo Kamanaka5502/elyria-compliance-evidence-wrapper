@@ -1,0 +1,107 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elyria Compliance Evidence Wrapper hero diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020611"/>
+      <stop offset="45%" stop-color="#071426"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff4b8"/>
+      <stop offset="48%" stop-color="#d8a83f"/>
+      <stop offset="100%" stop-color="#f7d77a"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="55%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#f7d77a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.38"/>
+      <stop offset="60%" stop-color="#7c3aed" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#f7d77a"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1180" cy="250" r="360" fill="url(#halo)"/>
+  <circle cx="360" cy="620" r="310" fill="url(#halo)" opacity="0.55"/>
+
+  <g opacity="0.16" stroke="#00e5ff" stroke-width="1.2">
+    <path d="M0 720 C340 520 570 810 900 600 S1350 430 1600 520" fill="none"/>
+    <path d="M0 650 C310 470 620 750 960 540 S1390 390 1600 470" fill="none"/>
+    <path d="M0 580 C360 420 690 700 1030 500 S1440 350 1600 420" fill="none"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="84" fill="url(#gold)" font-size="48" font-weight="900" letter-spacing="1">ELYRIA COMPLIANCE EVIDENCE WRAPPER</text>
+    <text x="74" y="126" fill="#d7dee9" font-size="22" font-weight="600">Public-safe evidence translation for consequence-boundary decisions</text>
+    <text x="74" y="158" fill="#9fb0c7" font-size="17">Runtime boundary governs consequence. The wrapper produces compliance-readable evidence.</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <rect x="70" y="230" width="390" height="310" rx="24" fill="#081421" stroke="#00e5ff" stroke-width="2" filter="url(#glow)"/>
+    <text x="105" y="275" fill="#f7d77a" font-size="24">INPUT: BOUNDARY RECEIPT</text>
+    <rect x="130" y="315" width="250" height="172" rx="16" fill="#f4f7fb" stroke="#d7dee9"/>
+    <path d="M334 315 L380 361 L334 361 Z" fill="#d7dee9"/>
+    <text x="158" y="352" fill="#0b1020" font-size="21">Secure Receipt</text>
+    <line x1="158" y1="374" x2="342" y2="374" stroke="#8b98aa" stroke-dasharray="6 5"/>
+    <text x="158" y="405" fill="#172033" font-size="16">Decision: REFUSE</text>
+    <text x="158" y="431" fill="#172033" font-size="16">Effect: Prevented</text>
+    <text x="158" y="457" fill="#172033" font-size="16">Replay: Available</text>
+    <text x="105" y="520" fill="#9fb0c7" font-size="16">Synthetic or authorized receipts only</text>
+  </g>
+
+  <line x1="460" y1="385" x2="555" y2="385" stroke="#f7d77a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <rect x="555" y="205" width="490" height="360" rx="28" fill="#071320" stroke="url(#gold)" stroke-width="3" filter="url(#glow)"/>
+    <text x="610" y="255" fill="#f7d77a" font-size="26">THE WRAPPER PROCESS</text>
+    <g transform="translate(705 295)">
+      <circle cx="95" cy="95" r="82" fill="none" stroke="#00e5ff" stroke-width="6" opacity="0.9"/>
+      <circle cx="95" cy="95" r="48" fill="none" stroke="#f7d77a" stroke-width="5"/>
+      <rect x="126" y="94" width="110" height="92" rx="12" fill="#0b1020" stroke="#d7dee9" stroke-width="5"/>
+      <rect x="153" y="61" width="56" height="60" rx="22" fill="none" stroke="#d7dee9" stroke-width="5"/>
+      <circle cx="181" cy="139" r="9" fill="#00e5ff"/>
+      <line x1="181" y1="148" x2="181" y2="167" stroke="#00e5ff" stroke-width="5"/>
+    </g>
+    <text x="610" y="455" fill="#ffffff" font-size="22">1. Preserve source boundary decision</text>
+    <text x="610" y="493" fill="#ffffff" font-size="22">2. Map compliance controls</text>
+    <text x="610" y="531" fill="#ffffff" font-size="22">3. Generate deterministic packet hash</text>
+  </g>
+
+  <line x1="1045" y1="385" x2="1140" y2="385" stroke="#f7d77a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <rect x="1140" y="230" width="390" height="310" rx="24" fill="#081421" stroke="#7c3aed" stroke-width="2" filter="url(#glow)"/>
+    <text x="1175" y="275" fill="#f7d77a" font-size="23">OUTPUT: EVIDENCE PACKET</text>
+    <rect x="1200" y="315" width="250" height="172" rx="16" fill="#f4f7fb" stroke="#d7dee9"/>
+    <path d="M1404 315 L1450 361 L1404 361 Z" fill="#d7dee9"/>
+    <text x="1228" y="350" fill="#0b1020" font-size="20">Compliance Packet</text>
+    <line x1="1228" y1="372" x2="1414" y2="372" stroke="#8b98aa" stroke-dasharray="6 5"/>
+    <text x="1228" y="403" fill="#172033" font-size="15">Review Path: Regulated</text>
+    <text x="1228" y="429" fill="#172033" font-size="15">Decision: Preserved</text>
+    <text x="1228" y="455" fill="#172033" font-size="15">Verification: Validated</text>
+    <text x="1175" y="520" fill="#9fb0c7" font-size="16">Evidence reporting, not runtime authority</text>
+  </g>
+
+  <g transform="translate(95 635)" font-family="Arial, Helvetica, sans-serif">
+    <rect x="0" y="0" width="1410" height="145" rx="26" fill="#07131f" stroke="url(#gold)" stroke-width="2"/>
+    <text x="38" y="42" fill="#f7d77a" font-size="24" font-weight="900">PUBLIC CLAIM</text>
+    <text x="38" y="82" fill="#e8eef8" font-size="20" font-weight="700">Compliance does not make an action admissible.</text>
+    <text x="38" y="114" fill="#c5d0df" font-size="18">Admissibility is resolved by the runtime boundary. The wrapper translates the decision into compliance-readable evidence.</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#9fb0c7">
+    <text x="70" y="842">Protected public proof surface • Proprietary / restricted use • No production certification claim • No protected runtime logic exposed</text>
+  </g>
+</svg>
