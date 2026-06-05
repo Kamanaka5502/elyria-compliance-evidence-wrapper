@@ -9,7 +9,7 @@ It is designed to show how Elyria boundary receipts and replayable outcomes can 
 - synthetic boundary receipts
 - public control mapping examples
 - compliance packet schema
-- audit review path
+- regulated review path
 - deterministic packet hash
 - local verifier
 
@@ -35,4 +35,4 @@ It demonstrates a compliance evidence wrapper pattern only.
 
 The runtime boundary decides whether consequence may bind.
 
-The compliance wrapper reports the decision in a format auditors and enterprise reviewers can inspect.
+The compliance wrapper reports the decision in a format compliance, regulator, and enterprise reviewers can inspect.
