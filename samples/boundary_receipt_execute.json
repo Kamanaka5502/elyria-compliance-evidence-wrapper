@@ -1,0 +1,12 @@
+{
+  "receipt_id": "demo-execute-001",
+  "corridor": "cyber",
+  "decision": "EXECUTE",
+  "reason_code": "BOUNDARY_ADMITTED",
+  "protected_effect": "privileged_change",
+  "authority_basis": "current_authority",
+  "evidence_basis": "synthetic_demo_evidence",
+  "replay_basis": "same input and same state reproduce execute",
+  "ai_origin": false,
+  "issued_at": "2026-01-22T14:31:00Z"
+}
