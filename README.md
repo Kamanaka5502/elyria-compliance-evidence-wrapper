@@ -28,19 +28,29 @@
 
 ---
 
+<table>
+<tr>
+<td width="50%">
+
 ## Position
 
-Elyria Compliance Evidence Wrapper is a public-safe evidence translation proof surface.
+**Elyria Compliance Evidence Wrapper** is a public-safe evidence translation proof surface.
 
-It converts already-decided Elyria / VERITA consequence-boundary receipts into compliance-readable evidence packets.
+It converts already-decided **Elyria / VERITA consequence-boundary receipts** into compliance-readable evidence packets.
 
-It does not govern execution.
+</td>
+<td width="50%">
 
-It does not decide admissibility.
+## Non-negotiable boundary
 
-It does not authorize consequence.
+- Does **not** govern execution.
+- Does **not** decide admissibility.
+- Does **not** authorize consequence.
+- Does **not** convert refusal into permission.
 
-It does not convert refusal into permission.
+</td>
+</tr>
+</table>
 
 ```text
 runtime boundary decides whether consequence may bind
@@ -52,17 +62,48 @@ reviewer verifies the packet and determines diligence posture
 
 ## Proof surface
 
-| Surface | Function |
-|---|---|
-| Boundary receipt | Source decision from the governed runtime boundary. |
-| Evidence packet | Compliance-readable record derived from the receipt. |
-| Packet hash | Deterministic integrity check for review. |
-| Verification command | Confirms the packet has not been altered. |
-| Regulated review path | Guides enterprise, compliance, and regulator-facing diligence. |
+<table>
+<tr>
+<th>Surface</th>
+<th>Function</th>
+<th>Boundary</th>
+</tr>
+<tr>
+<td><b>Boundary receipt</b></td>
+<td>Source decision from the governed runtime boundary.</td>
+<td>Input only.</td>
+</tr>
+<tr>
+<td><b>Evidence packet</b></td>
+<td>Compliance-readable record derived from the receipt.</td>
+<td>Reports only.</td>
+</tr>
+<tr>
+<td><b>Packet hash</b></td>
+<td>Deterministic integrity check for review.</td>
+<td>Detects change.</td>
+</tr>
+<tr>
+<td><b>Verification command</b></td>
+<td>Confirms the packet has not been altered.</td>
+<td>Replay posture.</td>
+</tr>
+<tr>
+<td><b>Regulated review path</b></td>
+<td>Guides enterprise, compliance, and regulator-facing diligence.</td>
+<td>Review only.</td>
+</tr>
+</table>
 
 ---
 
-## What this is
+## Category split
+
+<table>
+<tr>
+<td width="50%">
+
+### This is
 
 - compliance evidence wrapper
 - evidence packet generator
@@ -70,19 +111,35 @@ reviewer verifies the packet and determines diligence posture
 - receipt-to-review translator
 - public-safe proof corridor for enterprise diligence
 
-## What this is not
+</td>
+<td width="50%">
 
-- not the Elyria runtime boundary
-- not a separate runtime authority
-- not the protected runtime authority
-- not financial, clinical, legal, or security advice
-- not production compliance certification
-- not a substitute for regulated customer review
-- not a release of protected runtime logic
+### This is not
+
+- Elyria runtime boundary
+- separate runtime authority
+- protected runtime authority
+- financial, clinical, legal, or security advice
+- production compliance certification
+- substitute for regulated customer review
+- release of protected runtime logic
+
+</td>
+</tr>
+</table>
 
 ---
 
 ## Core flow
+
+```mermaid
+flowchart LR
+    A[Boundary Receipt] --> B[Evidence Packet Builder]
+    B --> C[Compliance Evidence Packet]
+    C --> D[Deterministic Packet Hash]
+    D --> E[Verifier]
+    E --> F[Regulated Review Path]
+```
 
 ```text
 boundary receipt
@@ -117,44 +174,85 @@ tests passed
 
 ---
 
-## Decision rule
+## Decision preservation rule
 
 Compliance does not make an action admissible.
 
 A compliance packet is valid only as evidence about a boundary decision that already occurred.
 
-```text
-REFUSE remains REFUSE
-HALT remains HALT
-NARROW remains NARROW
-ESCALATE remains ESCALATE
-ADMIT remains ADMIT
-```
+<table>
+<tr>
+<th>Boundary decision</th>
+<th>Wrapper posture</th>
+</tr>
+<tr>
+<td><code>REFUSE</code></td>
+<td><b>REFUSE remains REFUSE</b></td>
+</tr>
+<tr>
+<td><code>HALT</code></td>
+<td><b>HALT remains HALT</b></td>
+</tr>
+<tr>
+<td><code>NARROW</code></td>
+<td><b>NARROW remains NARROW</b></td>
+</tr>
+<tr>
+<td><code>ESCALATE</code></td>
+<td><b>ESCALATE remains ESCALATE</b></td>
+</tr>
+<tr>
+<td><code>ADMIT</code></td>
+<td><b>ADMIT remains ADMIT</b></td>
+</tr>
+</table>
 
-The wrapper reports. It does not promote, override, or soften the boundary outcome.
+> The wrapper reports. It does not promote, override, or soften the boundary outcome.
 
 ---
 
 ## Reviewer documents
 
-| Document | Purpose |
-|---|---|
-| `PUBLIC_DISCLOSURE_BOUNDARY.md` | Public/private boundary and non-certification posture. |
-| `COMPLIANCE_WRAPPER_MODEL.md` | Placement of the wrapper downstream of runtime admission. |
-| `CONTROL_MAPPING.md` | Public synthetic control mapping examples. |
-| `REGULATED_REVIEW_PATH.md` | Regulated review path. |
-| `NON_PRODUCTION_NOTICE.md` | Production-use restriction and diligence requirements. |
-| `LICENSE` | Proprietary evaluation license. |
+<table>
+<tr>
+<th>Document</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td><code>PUBLIC_DISCLOSURE_BOUNDARY.md</code></td>
+<td>Public/private boundary and non-certification posture.</td>
+</tr>
+<tr>
+<td><code>COMPLIANCE_WRAPPER_MODEL.md</code></td>
+<td>Placement of the wrapper downstream of runtime admission.</td>
+</tr>
+<tr>
+<td><code>CONTROL_MAPPING.md</code></td>
+<td>Public synthetic control mapping examples.</td>
+</tr>
+<tr>
+<td><code>REGULATED_REVIEW_PATH.md</code></td>
+<td>Regulated review path.</td>
+</tr>
+<tr>
+<td><code>NON_PRODUCTION_NOTICE.md</code></td>
+<td>Production-use restriction and diligence requirements.</td>
+</tr>
+<tr>
+<td><code>LICENSE</code></td>
+<td>Proprietary evaluation license.</td>
+</tr>
+</table>
 
 ---
 
 ## Status
 
-```text
-PUBLIC PROOF SURFACE
-PROPRIETARY / RESTRICTED USE
-PROTECTED RUNTIME NOT INCLUDED
-PRODUCTION CERTIFICATION NOT CLAIMED
-```
+<p align="center">
+  <img alt="Public Proof Surface" src="https://img.shields.io/badge/PUBLIC%20PROOF%20SURFACE-C7A86B?style=for-the-badge&labelColor=17202A&color=C7A86B">
+  <img alt="Restricted Use" src="https://img.shields.io/badge/PROPRIETARY%20%2F%20RESTRICTED%20USE-B8B2A6?style=for-the-badge&labelColor=17202A&color=B8B2A6">
+  <img alt="Runtime Not Included" src="https://img.shields.io/badge/PROTECTED%20RUNTIME%20NOT%20INCLUDED-4F5A68?style=for-the-badge&labelColor=17202A&color=4F5A68">
+  <img alt="No Certification Claim" src="https://img.shields.io/badge/PRODUCTION%20CERTIFICATION%20NOT%20CLAIMED-6E6250?style=for-the-badge&labelColor=17202A&color=6E6250">
+</p>
 
 Evaluation only unless a separate written agreement exists.
