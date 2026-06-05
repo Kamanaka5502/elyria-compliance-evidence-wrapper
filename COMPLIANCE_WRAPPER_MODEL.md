@@ -8,7 +8,7 @@ Elyria / Veritas runtime boundary
   -> replay result
   -> compliance evidence wrapper
   -> control mapping
-  -> audit packet
+  -> compliance evidence packet
 ```
 
 The wrapper is downstream of the runtime boundary.
@@ -45,8 +45,6 @@ A compliance packet includes:
 
 ## Boundary invariant
 
-```text
-No compliance packet can convert REFUSE, HALT, ESCALATE, REDIRECT, or QUARANTINE into EXECUTE.
-```
+Compliance evidence cannot convert a non-execute decision into EXECUTE.
 
 Compliance evidence is descriptive. Runtime admission is governing.
