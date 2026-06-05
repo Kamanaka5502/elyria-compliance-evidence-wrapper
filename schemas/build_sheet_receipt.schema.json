@@ -1,0 +1,15 @@
+{
+  "title": "BuildSheetBoundaryReceipt",
+  "type": "object",
+  "required": ["receipt_id", "movement_id", "boundary_system", "boundary_decision", "reason", "protected_effect", "replay_status", "timestamp"],
+  "properties": {
+    "receipt_id": {"type": "string"},
+    "movement_id": {"type": "string"},
+    "boundary_system": {"type": "string"},
+    "boundary_decision": {"type": "string"},
+    "reason": {"type": "string"},
+    "protected_effect": {"type": "string"},
+    "replay_status": {"type": "string"},
+    "timestamp": {"type": "string"}
+  }
+}
