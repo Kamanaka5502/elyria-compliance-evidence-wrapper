@@ -3,15 +3,36 @@
 </p>
 
 <p align="center">
-  <img alt="Status" src="https://img.shields.io/badge/status-public%20proof%20surface-gold?style=for-the-badge">
-  <img alt="Boundary" src="https://img.shields.io/badge/boundary-compliance%20evidence-0ea5e9?style=for-the-badge">
-  <img alt="Runtime" src="https://img.shields.io/badge/runtime-not%20included-111827?style=for-the-badge">
-  <img alt="Use" src="https://img.shields.io/badge/use-restricted%20evaluation-b91c1c?style=for-the-badge">
+  <img alt="Status" src="https://img.shields.io/badge/status-public%20proof%20surface-C7A86B?style=for-the-badge&labelColor=17202A&color=C7A86B">
+  <img alt="Boundary" src="https://img.shields.io/badge/boundary-compliance%20evidence-8FA3B8?style=for-the-badge&labelColor=17202A&color=8FA3B8">
+  <img alt="Runtime" src="https://img.shields.io/badge/runtime-not%20included-4F5A68?style=for-the-badge&labelColor=17202A&color=4F5A68">
+  <img alt="Use" src="https://img.shields.io/badge/use-restricted%20evaluation-B8B2A6?style=for-the-badge&labelColor=17202A&color=B8B2A6">
 </p>
+
+<p align="center">
+  <img alt="Packet" src="https://img.shields.io/badge/packet-deterministic%20hash-26313E?style=flat-square&labelColor=10151C&color=26313E">
+  <img alt="Review" src="https://img.shields.io/badge/review-regulated%20path-596575?style=flat-square&labelColor=10151C&color=596575">
+  <img alt="Authority" src="https://img.shields.io/badge/authority-boundary%20first-C7A86B?style=flat-square&labelColor=10151C&color=C7A86B">
+  <img alt="Certification" src="https://img.shields.io/badge/certification-not%20claimed-6E6250?style=flat-square&labelColor=10151C&color=6E6250">
+</p>
+
+<div align="center">
 
 # Elyria Compliance Evidence Wrapper
 
-Elyria Compliance Evidence Wrapper is a public-safe evidence translation proof surface. It converts already-decided Elyria / VERITA consequence-boundary receipts into compliance-readable evidence packets.
+### Public-safe evidence translation for consequence-boundary decisions
+
+**Boundary first. Evidence wrapper second. Compliance review third.**
+
+</div>
+
+---
+
+## Position
+
+Elyria Compliance Evidence Wrapper is a public-safe evidence translation proof surface.
+
+It converts already-decided Elyria / VERITA consequence-boundary receipts into compliance-readable evidence packets.
 
 It does not govern execution.
 
@@ -22,10 +43,24 @@ It does not authorize consequence.
 It does not convert refusal into permission.
 
 ```text
-Boundary first.
-Evidence wrapper second.
-Compliance review third.
+runtime boundary decides whether consequence may bind
+wrapper translates the decision into compliance-readable evidence
+reviewer verifies the packet and determines diligence posture
 ```
+
+---
+
+## Proof surface
+
+| Surface | Function |
+|---|---|
+| Boundary receipt | Source decision from the governed runtime boundary. |
+| Evidence packet | Compliance-readable record derived from the receipt. |
+| Packet hash | Deterministic integrity check for review. |
+| Verification command | Confirms the packet has not been altered. |
+| Regulated review path | Guides enterprise, compliance, and regulator-facing diligence. |
+
+---
 
 ## What this is
 
@@ -45,6 +80,8 @@ Compliance review third.
 - not a substitute for regulated customer review
 - not a release of protected runtime logic
 
+---
+
 ## Core flow
 
 ```text
@@ -53,7 +90,10 @@ boundary receipt
   -> compliance evidence packet
   -> deterministic packet hash
   -> verifier
+  -> regulated review path
 ```
+
+---
 
 ## Quick start
 
@@ -64,7 +104,7 @@ python -m pip install -e .
 
 elyria-wrap build examples/boundary_receipt_refuse.json --out out/refuse_packet.json
 elyria-wrap verify out/refuse_packet.json
-pytest -q
+python -m pytest -q
 ```
 
 Expected output:
@@ -75,11 +115,25 @@ verification passed
 tests passed
 ```
 
+---
+
 ## Decision rule
 
 Compliance does not make an action admissible.
 
 A compliance packet is valid only as evidence about a boundary decision that already occurred.
+
+```text
+REFUSE remains REFUSE
+HALT remains HALT
+NARROW remains NARROW
+ESCALATE remains ESCALATE
+ADMIT remains ADMIT
+```
+
+The wrapper reports. It does not promote, override, or soften the boundary outcome.
+
+---
 
 ## Reviewer documents
 
@@ -92,6 +146,15 @@ A compliance packet is valid only as evidence about a boundary decision that alr
 | `NON_PRODUCTION_NOTICE.md` | Production-use restriction and diligence requirements. |
 | `LICENSE` | Proprietary evaluation license. |
 
+---
+
 ## Status
 
-Protected public proof surface. Proprietary / restricted use. Evaluation only unless separate written agreement exists.
+```text
+PUBLIC PROOF SURFACE
+PROPRIETARY / RESTRICTED USE
+PROTECTED RUNTIME NOT INCLUDED
+PRODUCTION CERTIFICATION NOT CLAIMED
+```
+
+Evaluation only unless a separate written agreement exists.
