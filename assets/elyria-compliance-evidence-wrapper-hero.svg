@@ -1,107 +1,135 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elyria Compliance Evidence Wrapper hero diagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="Elyria Compliance Evidence Wrapper corrected neutral visual">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#020611"/>
-      <stop offset="45%" stop-color="#071426"/>
-      <stop offset="100%" stop-color="#000000"/>
+      <stop offset="0%" stop-color="#0B1118"/>
+      <stop offset="55%" stop-color="#111922"/>
+      <stop offset="100%" stop-color="#070B10"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#fff4b8"/>
-      <stop offset="48%" stop-color="#d8a83f"/>
-      <stop offset="100%" stop-color="#f7d77a"/>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#202A35"/>
+      <stop offset="100%" stop-color="#17202B"/>
     </linearGradient>
-    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00e5ff"/>
-      <stop offset="55%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#f7d77a"/>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0EDE4"/>
+      <stop offset="100%" stop-color="#D9D5C9"/>
     </linearGradient>
-    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.38"/>
-      <stop offset="60%" stop-color="#7c3aed" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 z" fill="#f7d77a"/>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 Z" fill="#B99A5E"/>
     </marker>
+    <style>
+      .title{font-family:Arial,Helvetica,sans-serif;font-size:44px;font-weight:800;letter-spacing:9px;fill:#E7E2D7;}
+      .sub{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#B8B2A6;}
+      .head{font-family:Arial,Helvetica,sans-serif;font-size:25px;font-weight:800;letter-spacing:3px;fill:#E7E2D7;}
+      .body{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#E7E2D7;}
+      .bodyb{font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:800;fill:#E7E2D7;}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:18px;fill:#B8B2A6;}
+      .paperText{font-family:Arial,Helvetica,sans-serif;font-size:19px;fill:#1D242E;}
+      .paperSmall{font-family:Arial,Helvetica,sans-serif;font-size:16px;fill:#1D242E;}
+      .mutedGold{fill:#C7A86B;}
+      .blueGray{fill:#8FA3B8;}
+    </style>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#bg)"/>
-  <circle cx="1180" cy="250" r="360" fill="url(#halo)"/>
-  <circle cx="360" cy="620" r="310" fill="url(#halo)" opacity="0.55"/>
-
-  <g opacity="0.16" stroke="#00e5ff" stroke-width="1.2">
-    <path d="M0 720 C340 520 570 810 900 600 S1350 430 1600 520" fill="none"/>
-    <path d="M0 650 C310 470 620 750 960 540 S1390 390 1600 470" fill="none"/>
-    <path d="M0 580 C360 420 690 700 1030 500 S1440 350 1600 420" fill="none"/>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <g opacity="0.32" stroke="#202A35" stroke-width="1">
+    <path d="M0 0 V1000 M40 0 V1000 M80 0 V1000 M120 0 V1000 M160 0 V1000 M200 0 V1000 M240 0 V1000 M280 0 V1000 M320 0 V1000 M360 0 V1000 M400 0 V1000 M440 0 V1000 M480 0 V1000 M520 0 V1000 M560 0 V1000 M600 0 V1000 M640 0 V1000 M680 0 V1000 M720 0 V1000 M760 0 V1000 M800 0 V1000 M840 0 V1000 M880 0 V1000 M920 0 V1000 M960 0 V1000 M1000 0 V1000 M1040 0 V1000 M1080 0 V1000 M1120 0 V1000 M1160 0 V1000 M1200 0 V1000 M1240 0 V1000 M1280 0 V1000 M1320 0 V1000 M1360 0 V1000 M1400 0 V1000 M1440 0 V1000 M1480 0 V1000 M1520 0 V1000 M1560 0 V1000 M1600 0 V1000"/>
+    <path d="M0 0 H1600 M0 40 H1600 M0 80 H1600 M0 120 H1600 M0 160 H1600 M0 200 H1600 M0 240 H1600 M0 280 H1600 M0 320 H1600 M0 360 H1600 M0 400 H1600 M0 440 H1600 M0 480 H1600 M0 520 H1600 M0 560 H1600 M0 600 H1600 M0 640 H1600 M0 680 H1600 M0 720 H1600 M0 760 H1600 M0 800 H1600 M0 840 H1600 M0 880 H1600 M0 920 H1600 M0 960 H1600 M0 1000 H1600"/>
+  </g>
+  <g opacity="0.22" stroke="#1F2B38" fill="none">
+    <path d="M-80 660 C330 490 520 590 785 545 C1100 490 1320 520 1680 685"/>
+    <path d="M-80 700 C330 530 520 630 785 585 C1100 530 1320 560 1680 725"/>
+    <path d="M-80 740 C330 570 520 670 785 625 C1100 570 1320 600 1680 765"/>
   </g>
 
-  <g font-family="Arial, Helvetica, sans-serif">
-    <text x="70" y="84" fill="url(#gold)" font-size="48" font-weight="900" letter-spacing="1">ELYRIA COMPLIANCE EVIDENCE WRAPPER</text>
-    <text x="74" y="126" fill="#d7dee9" font-size="22" font-weight="600">Public-safe evidence translation for consequence-boundary decisions</text>
-    <text x="74" y="158" fill="#9fb0c7" font-size="17">Runtime boundary governs consequence. The wrapper produces compliance-readable evidence.</text>
+  <rect x="65" y="45" width="1470" height="105" rx="18" fill="#17202A" stroke="#657180" stroke-width="2"/>
+  <circle cx="118" cy="98" r="23" fill="#E7E2D7"/>
+  <text x="165" y="120" class="title">ELYRIA COMPLIANCE EVIDENCE WRAPPER</text>
+  <text x="1115" y="112" class="sub">Public-Safe Evidence Trail</text>
+
+  <g id="left">
+    <rect x="70" y="240" width="425" height="450" rx="14" fill="url(#panel)" stroke="#586575" stroke-width="2"/>
+    <rect x="70" y="240" width="425" height="58" fill="#26313E" stroke="#586575"/>
+    <text x="95" y="281" class="head">INPUT: BOUNDARY RECEIPT</text>
+    <path d="M145 330 L180 338 L210 330 L245 338 L280 330 L315 338 L370 330 L370 592 L145 592 Z" fill="url(#paper)"/>
+    <path d="M315 330 L370 385 L315 385 Z" fill="#C9C4B9"/>
+    <path d="M315 330 L370 385" stroke="#9D988F" stroke-width="2"/>
+    <rect x="176" y="365" width="26" height="27" rx="4" fill="none" stroke="#1D242E" stroke-width="3"/>
+    <path d="M181 365 C181 345 197 345 197 365" fill="none" stroke="#1D242E" stroke-width="3"/>
+    <text x="220" y="380" class="paperText">Secure</text>
+    <text x="220" y="413" class="paperText">Receipt</text>
+    <line x1="178" y1="440" x2="350" y2="440" stroke="#A5A19A" stroke-width="2"/>
+    <text x="178" y="471" class="paperSmall">Boundary Decision:</text>
+    <text x="178" y="497" class="paperSmall">REFUSE (Synthetic)</text>
+    <line x1="178" y1="525" x2="350" y2="525" stroke="#A5A19A" stroke-width="2"/>
+    <text x="178" y="555" class="paperSmall">Protected Effect:</text>
+    <text x="178" y="582" class="paperSmall" fill="#B66A64">NO_BIND</text>
+    <path d="M275 548 L305 560 L300 606 L275 630 L250 606 L245 560 Z" fill="#8FA3B8" opacity="0.9"/>
+    <text x="100" y="670" class="small">Synthetic or authorized receipts only</text>
   </g>
 
-  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    <rect x="70" y="230" width="390" height="310" rx="24" fill="#081421" stroke="#00e5ff" stroke-width="2" filter="url(#glow)"/>
-    <text x="105" y="275" fill="#f7d77a" font-size="24">INPUT: BOUNDARY RECEIPT</text>
-    <rect x="130" y="315" width="250" height="172" rx="16" fill="#f4f7fb" stroke="#d7dee9"/>
-    <path d="M334 315 L380 361 L334 361 Z" fill="#d7dee9"/>
-    <text x="158" y="352" fill="#0b1020" font-size="21">Secure Receipt</text>
-    <line x1="158" y1="374" x2="342" y2="374" stroke="#8b98aa" stroke-dasharray="6 5"/>
-    <text x="158" y="405" fill="#172033" font-size="16">Decision: REFUSE</text>
-    <text x="158" y="431" fill="#172033" font-size="16">Effect: Prevented</text>
-    <text x="158" y="457" fill="#172033" font-size="16">Replay: Available</text>
-    <text x="105" y="520" fill="#9fb0c7" font-size="16">Synthetic or authorized receipts only</text>
-  </g>
+  <path d="M495 466 L590 466" stroke="#B99A5E" stroke-width="5" marker-end="url(#arrow)"/>
 
-  <line x1="460" y1="385" x2="555" y2="385" stroke="#f7d77a" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    <rect x="555" y="205" width="490" height="360" rx="28" fill="#071320" stroke="url(#gold)" stroke-width="3" filter="url(#glow)"/>
-    <text x="610" y="255" fill="#f7d77a" font-size="26">THE WRAPPER PROCESS</text>
-    <g transform="translate(705 295)">
-      <circle cx="95" cy="95" r="82" fill="none" stroke="#00e5ff" stroke-width="6" opacity="0.9"/>
-      <circle cx="95" cy="95" r="48" fill="none" stroke="#f7d77a" stroke-width="5"/>
-      <rect x="126" y="94" width="110" height="92" rx="12" fill="#0b1020" stroke="#d7dee9" stroke-width="5"/>
-      <rect x="153" y="61" width="56" height="60" rx="22" fill="none" stroke="#d7dee9" stroke-width="5"/>
-      <circle cx="181" cy="139" r="9" fill="#00e5ff"/>
-      <line x1="181" y1="148" x2="181" y2="167" stroke="#00e5ff" stroke-width="5"/>
+  <g id="middle">
+    <rect x="590" y="220" width="420" height="495" rx="14" fill="url(#panel)" stroke="#586575" stroke-width="2"/>
+    <rect x="590" y="220" width="420" height="58" fill="#26313E" stroke="#586575"/>
+    <text x="615" y="260" class="head">THE WRAPPER PROCESS</text>
+    <g transform="translate(0,0)" filter="url(#softGlow)">
+      <circle cx="800" cy="385" r="76" fill="none" stroke="#8FA3B8" stroke-width="10"/>
+      <circle cx="800" cy="385" r="42" fill="none" stroke="#D8D1C2" stroke-width="6"/>
+      <g stroke="#8FA3B8" stroke-width="10">
+        <line x1="800" y1="285" x2="800" y2="330"/>
+        <line x1="800" y1="440" x2="800" y2="485"/>
+        <line x1="700" y1="385" x2="745" y2="385"/>
+        <line x1="855" y1="385" x2="900" y2="385"/>
+        <line x1="730" y1="315" x2="762" y2="347"/>
+        <line x1="838" y1="423" x2="870" y2="455"/>
+        <line x1="870" y1="315" x2="838" y2="347"/>
+        <line x1="762" y1="423" x2="730" y2="455"/>
+      </g>
+      <rect x="855" y="420" width="125" height="100" rx="13" fill="#151C25" stroke="#B7C0CA" stroke-width="5"/>
+      <path d="M885 420 C885 365 950 365 950 420" fill="none" stroke="#B7C0CA" stroke-width="5"/>
+      <circle cx="918" cy="473" r="11" fill="#8FA3B8"/>
+      <line x1="918" y1="482" x2="918" y2="508" stroke="#8FA3B8" stroke-width="5"/>
     </g>
-    <text x="610" y="455" fill="#ffffff" font-size="22">1. Preserve source boundary decision</text>
-    <text x="610" y="493" fill="#ffffff" font-size="22">2. Map compliance controls</text>
-    <text x="610" y="531" fill="#ffffff" font-size="22">3. Generate deterministic packet hash</text>
+    <text x="630" y="575" class="bodyb">1. Preserve source boundary decision</text>
+    <text x="630" y="615" class="bodyb">2. Map compliance controls</text>
+    <text x="630" y="655" class="bodyb">3. Generate deterministic packet hash</text>
+    <text x="630" y="695" class="bodyb">4. Verify packet integrity</text>
+    <text x="630" y="730" class="small" fill="#C7A86B">Evidence reporting, not runtime authority</text>
   </g>
 
-  <line x1="1045" y1="385" x2="1140" y2="385" stroke="#f7d77a" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1010 466 L1105 466" stroke="#B99A5E" stroke-width="5" marker-end="url(#arrow)"/>
 
-  <g font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    <rect x="1140" y="230" width="390" height="310" rx="24" fill="#081421" stroke="#7c3aed" stroke-width="2" filter="url(#glow)"/>
-    <text x="1175" y="275" fill="#f7d77a" font-size="23">OUTPUT: EVIDENCE PACKET</text>
-    <rect x="1200" y="315" width="250" height="172" rx="16" fill="#f4f7fb" stroke="#d7dee9"/>
-    <path d="M1404 315 L1450 361 L1404 361 Z" fill="#d7dee9"/>
-    <text x="1228" y="350" fill="#0b1020" font-size="20">Compliance Packet</text>
-    <line x1="1228" y1="372" x2="1414" y2="372" stroke="#8b98aa" stroke-dasharray="6 5"/>
-    <text x="1228" y="403" fill="#172033" font-size="15">Review Path: Regulated</text>
-    <text x="1228" y="429" fill="#172033" font-size="15">Decision: Preserved</text>
-    <text x="1228" y="455" fill="#172033" font-size="15">Verification: Validated</text>
-    <text x="1175" y="520" fill="#9fb0c7" font-size="16">Evidence reporting, not runtime authority</text>
+  <g id="right">
+    <rect x="1105" y="240" width="425" height="450" rx="14" fill="url(#panel)" stroke="#586575" stroke-width="2"/>
+    <rect x="1105" y="240" width="425" height="58" fill="#26313E" stroke="#586575"/>
+    <text x="1130" y="281" class="head">OUTPUT: EVIDENCE PACKET</text>
+    <rect x="1180" y="330" width="255" height="260" rx="8" fill="url(#paper)"/>
+    <rect x="1180" y="330" width="255" height="52" fill="#8FA3B8"/>
+    <circle cx="1205" cy="356" r="6" fill="#F0EDE4"/>
+    <circle cx="1224" cy="356" r="6" fill="#F0EDE4"/>
+    <circle cx="1243" cy="356" r="6" fill="#F0EDE4"/>
+    <path d="M1380 330 L1435 385 L1380 385 Z" fill="#C9C4B9"/>
+    <text x="1215" y="420" class="paperText">Secure</text>
+    <text x="1215" y="455" class="paperSmall">Compliance Packet</text>
+    <line x1="1215" y1="475" x2="1405" y2="475" stroke="#A5A19A" stroke-width="2"/>
+    <text x="1215" y="515" class="paperSmall">Review Path:</text>
+    <text x="1215" y="542" class="paperSmall">Regulated Review</text>
+    <text x="1215" y="585" class="paperSmall">Verification Status:</text>
+    <text x="1215" y="612" class="paperSmall" fill="#6F9E76">VALIDATED</text>
+    <text x="1140" y="670" class="small">Compliance-readable evidence packet</text>
   </g>
 
-  <g transform="translate(95 635)" font-family="Arial, Helvetica, sans-serif">
-    <rect x="0" y="0" width="1410" height="145" rx="26" fill="#07131f" stroke="url(#gold)" stroke-width="2"/>
-    <text x="38" y="42" fill="#f7d77a" font-size="24" font-weight="900">PUBLIC CLAIM</text>
-    <text x="38" y="82" fill="#e8eef8" font-size="20" font-weight="700">Compliance does not make an action admissible.</text>
-    <text x="38" y="114" fill="#c5d0df" font-size="18">Admissibility is resolved by the runtime boundary. The wrapper translates the decision into compliance-readable evidence.</text>
-  </g>
-
-  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#9fb0c7">
-    <text x="70" y="842">Protected public proof surface • Proprietary / restricted use • No production certification claim • No protected runtime logic exposed</text>
-  </g>
+  <rect x="70" y="790" width="1460" height="140" rx="18" fill="#151D27" stroke="#4F5A68" stroke-width="2"/>
+  <text x="105" y="850" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="800" letter-spacing="4" fill="#C7A86B">PUBLIC CLAIM</text>
+  <text x="105" y="895" class="body">Compliance does not make an action admissible. Admissibility is resolved by the runtime boundary.</text>
+  <text x="105" y="922" class="body">The wrapper translates that decision into compliance-readable evidence.</text>
+  <text x="105" y="965" class="small">Protected public proof surface • Proprietary / restricted use • No production certification claim • No protected runtime logic exposed</text>
 </svg>
