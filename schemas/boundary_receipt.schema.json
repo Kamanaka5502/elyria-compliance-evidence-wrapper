@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BoundaryReceipt",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "corridor",
+    "decision",
+    "reason_code",
+    "protected_effect",
+    "issued_at"
+  ],
+  "properties": {
+    "receipt_id": {"type": "string"},
+    "corridor": {"type": "string"},
+    "decision": {
+      "type": "string",
+      "enum": ["EXECUTE", "REFUSE", "HALT", "ESCALATE", "REDIRECT", "QUARANTINE"]
+    },
+    "reason_code": {"type": "string"},
+    "protected_effect": {"type": "string"},
+    "authority_basis": {"type": "string"},
+    "evidence_basis": {"type": "string"},
+    "replay_basis": {"type": "string"},
+    "ai_origin": {"type": "boolean"},
+    "issued_at": {"type": "string"}
+  }
+}
