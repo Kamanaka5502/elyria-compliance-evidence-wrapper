@@ -1,0 +1,56 @@
+wrapper:
+  name: Elyria Compliance Evidence Wrapper
+  version: "0.1.0"
+
+default_review_posture:
+  EXECUTE: admitted_for_review
+  REFUSE: refused_before_effect
+  HALT: halted_before_continuation
+  ESCALATE: requires_authorized_review
+  REDIRECT: alternate_corridor_required
+  QUARANTINE: isolated_pending_review
+
+controls:
+  - id: SOC2-CC7.2
+    framework: SOC 2
+    area: change and incident response
+    evidence_fields:
+      - decision
+      - reason_code
+      - protected_effect
+      - replay_basis
+
+  - id: ISO27001-A.5.15
+    framework: ISO 27001
+    area: access control
+    evidence_fields:
+      - authority_basis
+      - decision
+      - evidence_basis
+
+  - id: NIST-CSF-GV
+    framework: NIST CSF
+    area: governance
+    evidence_fields:
+      - corridor
+      - consequence_posture
+      - review_posture
+
+  - id: NIST-AI-RMF-MAP
+    framework: NIST AI RMF
+    area: map and measure
+    evidence_fields:
+      - ai_origin
+      - decision
+      - escalation_path
+
+  - id: DORA-ICT-RISK
+    framework: DORA
+    area: ICT operational resilience
+    corridors:
+      - financial
+      - cyber
+    evidence_fields:
+      - protected_effect
+      - replay_basis
+      - packet_hash
