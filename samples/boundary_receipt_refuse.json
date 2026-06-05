@@ -1,0 +1,12 @@
+{
+  "receipt_id": "demo-refuse-001",
+  "corridor": "financial",
+  "decision": "REFUSE",
+  "reason_code": "AUTHORITY_STALE",
+  "protected_effect": "value_transfer",
+  "authority_basis": "stale_signer_standing",
+  "evidence_basis": "synthetic_demo_evidence",
+  "replay_basis": "same input and same state reproduce refusal",
+  "ai_origin": true,
+  "issued_at": "2026-01-22T14:30:00Z"
+}
