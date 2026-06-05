@@ -1,0 +1,10 @@
+{
+  "receipt_id": "br-001",
+  "movement_id": "mv-001",
+  "boundary_system": "Elyria / VERITA",
+  "boundary_decision": "REFUSE",
+  "reason": "inadmissible_movement",
+  "protected_effect": "NO_BIND",
+  "replay_status": "PASSED",
+  "timestamp": "2026-06-05T00:00:00Z"
+}
